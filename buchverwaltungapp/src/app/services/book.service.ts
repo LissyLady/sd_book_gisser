@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BookService {
     private http = inject(HttpClient);
-    private apiUrl = 'http://localhost:3000/books'; // Replace with your API URL
+    private apiUrl = 'http://localhost:3000/books';
 
     // Create a new book
     createBook(book: any): Observable<any> {
