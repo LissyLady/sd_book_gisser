@@ -1,28 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { BookService } from 'src/app/services/book.service';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-    selector: 'app-book-detail',
-    templateUrl: './book-detail.component.html',
+  selector: 'app-add-book-dialog',
+  templateUrl: './add-book-dialog.component.html',
+  styleUrls: ['./add-book-dialog.component.css'],
 })
-export class BookDetailComponent implements OnInit {
-    book: any;
+export class AddBookDialogComponent {
+  newBook: any = {
+    title: '',
+    isbn: '',
+    pageCount: 0,
+    summary: '',
+  };
 
-    constructor(
-        private route: ActivatedRoute,
-        private bookService: BookService
-    ) { }
+  constructor(
+    public dialogRef: MatDialogRef<AddBookDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
-    ngOnInit() {
-        this.route.paramMap.subscribe((params) => {
-            const bookId = params.get('id');
-            if (bookId !== null) {
-
-                this.bookService.getBookById(bookId).subscribe((data) => {
-                    this.book = data;
-                });
-            }
-        });
-    }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
