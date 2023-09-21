@@ -1,28 +1,10 @@
 <div class="container mx-auto my-8">
     <h1 class="text-3xl font-semibold">Buchliste</h1>
 
-    <div class="flex justify-between mt-4">
-        <div class="w-1/2">
-            <input [(ngModel)]="searchText" class="w-full px-4 py-2 border border-gray-300 rounded-lg"
-                placeholder="Buch suchen..." />
-        </div>
-        <div>
-            <select [(ngModel)]="selectedFilter" class="px-4 py-2 border border-gray-300 rounded-lg">
-                <option value="all">Alle Bücher</option>
-                <option value="title">Titel</option>
-                <option value="isbn">ISBN</option>
-            </select>
-        </div>
-    </div>
-
     <div class="overflow-x-auto">
         <table class="min-w-full">
             <thead>
                 <tr>
-                    <th
-                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                        Vorschaubild
-                    </th>
                     <th
                         class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                         Titel

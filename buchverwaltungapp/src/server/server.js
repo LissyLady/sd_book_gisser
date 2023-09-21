@@ -18,11 +18,11 @@ app.post('/api/books', (req, res) => {
     res.json(newBook);
 });
 
-app.put('/books/:id', (req, res) => {
-    const bookId = req.params.id;
+app.put('/api/books/:isbn', (req, res) => {
+    const bookISBN = req.params.isbn;
     const updatedBook = req.body;
 
-    const bookIndex = books.findIndex((book) => book.id === bookId);
+    const bookIndex = books.findIndex((book) => book.isbn === bookISBN);
 
     if (bookIndex === -1) {
         res.status(404).json({ error: 'Book not found' });
@@ -32,9 +32,9 @@ app.put('/books/:id', (req, res) => {
     }
 });
 
-app.delete('/books/:id', (req, res) => {
-    const bookId = req.params.id;
-    const bookIndex = books.findIndex((book) => book.id === bookId);
+app.delete('/api/books/:isbn', (req, res) => {
+    const bookISBN = req.params.isbn;
+    const bookIndex = books.findIndex((book) => book.isbn === bookISBN);
 
     if (bookIndex === -1) {
         res.status(404).json({ error: 'Book not found' });
@@ -44,7 +44,7 @@ app.delete('/books/:id', (req, res) => {
     }
 });
 
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

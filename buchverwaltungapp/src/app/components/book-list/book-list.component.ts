@@ -40,28 +40,31 @@ export class BookListComponent implements OnInit {
     }
 
     editBook(book: any): void {
-        // Implementieren Sie die Bearbeiten-Funktion hier
+        const dialogRef = this.dialog.open(AddBookDialogComponent, {
+            width: '400px',
+            data: { ...book },
+        });
+    
+        dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+                this.bookService.updateBook(book.isbn, result).subscribe(() => {
+                    this.getBooks();
+                });
+            }
+        });
     }
 
     deleteBook(book: any): void {
-        // Implementieren Sie die Löschen-Funktion hier
-    }
-
-    filterBooks(): any[] {
-        if (this.selectedFilter === 'all') {
-            return this.books.filter((book) =>
-                book.title.toLowerCase().includes(this.searchText.toLowerCase())
-            );
-        } else if (this.selectedFilter === 'title') {
-            return this.books.filter((book) =>
-                book.title.toLowerCase().includes(this.searchText.toLowerCase())
-            );
-        } else if (this.selectedFilter === 'isbn') {
-            return this.books.filter((book) =>
-                book.isbn.toLowerCase().includes(this.searchText.toLowerCase())
-            );
-        } else {
-            return this.books;
+        const confirmDelete = window.confirm(`Are you sure you want to delete ${book.title}?`);
+        
+        if (confirmDelete) {
+            if (book.isbn) {
+                this.bookService.deleteBook(book.isbn).subscribe(() => {
+                    this.getBooks();
+                });
+            } else {
+                console.error('Invalid ISBN for deleting the book.');
+            }
         }
     }
 }

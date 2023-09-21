@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -6,8 +6,9 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class BookService {
-    private http = inject(HttpClient);
-    private apiUrl = 'http://localhost:3000/books';
+    private apiUrl = 'http://localhost:3000/api/books';
+
+    constructor(private http: HttpClient) {}
 
     // Create a new book
     createBook(book: any): Observable<any> {

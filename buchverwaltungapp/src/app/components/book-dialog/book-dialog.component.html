@@ -1,26 +1,16 @@
-<h2 class="text-2xl font-semibold mb-4">Buch hinzufügen</h2>
-
 <form>
     <div class="grid grid-cols-2 gap-4">
         <div class="col-span-2 sm:col-span-1">
-            <mat-form-field class="w-full">
-                <input matInput [(ngModel)]="newBook.title" placeholder="Titel" />
-            </mat-form-field>
+            <input matInput [(ngModel)]="newBook.title"  name="title" placeholder="Titel" />
         </div>
         <div class="col-span-2 sm:col-span-1">
-            <mat-form-field class="w-full">
-                <input matInput [(ngModel)]="newBook.isbn" placeholder="ISBN" />
-            </mat-form-field>
+            <input matInput [(ngModel)]="newBook.isbn" name="isbn" placeholder="ISBN" />
         </div>
         <div class="col-span-2 sm:col-span-1">
-            <mat-form-field class="w-full">
-                <input matInput [(ngModel)]="newBook.pageCount" placeholder="Seitenanzahl" type="number" />
-            </mat-form-field>
+            <input matInput [(ngModel)]="newBook.pageCount" name="pageCount" placeholder="Seitenanzahl" type="number" />
         </div>
         <div class="col-span-2">
-            <mat-form-field class="w-full">
-                <textarea matInput [(ngModel)]="newBook.summary" placeholder="Zusammenfassung"></textarea>
-            </mat-form-field>
+            <textarea matInput [(ngModel)]="newBook.summary" name="summary" placeholder="Zusammenfassung"></textarea>
         </div>
     </div>
 

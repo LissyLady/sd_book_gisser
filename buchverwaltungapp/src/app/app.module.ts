@@ -8,6 +8,8 @@ import { AddBookDialogComponent } from './components/book-dialog/book-dialog.com
 import { BookListComponent } from './components/book-list/book-list.component';
 import { BookService } from './services/book.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [
     BookService
