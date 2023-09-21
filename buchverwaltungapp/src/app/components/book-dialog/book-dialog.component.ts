@@ -3,8 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-book-dialog',
-  templateUrl: './add-book-dialog.component.html',
-  styleUrls: ['./add-book-dialog.component.css'],
+  templateUrl: './book-dialog.component.html',
 })
 export class AddBookDialogComponent {
   newBook: any = {

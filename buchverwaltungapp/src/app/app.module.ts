@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -8,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddBookDialogComponent } from './components/book-dialog/book-dialog.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { BookService } from './services/book.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -20,8 +20,7 @@ import { BookService } from './services/book.service';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    AddBookDialogComponent,
-    BookListComponent
+    MatFormFieldModule
   ],
   providers: [
     BookService
