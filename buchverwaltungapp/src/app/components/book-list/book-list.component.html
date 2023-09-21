@@ -1,5 +1,70 @@
-<div *ngFor="let book of books">
-    <h2>{{ book.title }}</h2>
-    <p>{{ book.author }}</p>
-    <button (click)="deleteBook(book.id)">Delete</button>
+<div class="container mx-auto my-8">
+    <h1 class="text-3xl font-semibold">Buchliste</h1>
+
+    <div class="flex justify-between mt-4">
+        <div class="w-1/2">
+            <input [(ngModel)]="searchText" class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                placeholder="Buch suchen..." />
+        </div>
+        <div>
+            <select [(ngModel)]="selectedFilter" class="px-4 py-2 border border-gray-300 rounded-lg">
+                <option value="all">Alle Bücher</option>
+                <option value="title">Titel</option>
+                <option value="isbn">ISBN</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full">
+            <thead>
+                <tr>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Vorschaubild
+                    </th>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Titel
+                    </th>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        ISBN
+                    </th>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Seitenanzahl
+                    </th>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Zusammenfassung
+                    </th>
+                    <th class="px-6 py-3 bg-gray-50"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of books" class="bg-white">
+                    <td class="px-6 py-4 whitespace-no-wrap">
+                        <img *ngIf="book.previewImage" [src]="book.previewImage" alt="Buchvorschaubild"
+                            class="w-16 h-16 object-cover rounded-lg" />
+                    </td>
+                    <td class="px-6 py-4 whitespace-no-wrap">{{ book.title }}</td>
+                    <td class="px-6 py-4 whitespace-no-wrap">{{ book.isbn }}</td>
+                    <td class="px-6 py-4 whitespace-no-wrap">{{ book.pageCount }}</td>
+                    <td class="px-6 py-4 whitespace-no-wrap">{{ book.summary }}</td>
+                    <td class="px-6 py-4 whitespace-no-wrap">
+                        <button (click)="editBook(book)"
+                            class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">Bearbeiten</button>
+                        <button (click)="deleteBook(book)"
+                            class="bg-red-500 text-white px-4 py-2 rounded-md">Löschen</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-4">
+        <button (click)="openAddBookDialog()" class="bg-green-500 text-white px-4 py-2 rounded-md">Buch
+            hinzufügen</button>
+    </div>
 </div>
