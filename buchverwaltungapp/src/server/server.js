@@ -25,7 +25,7 @@ app.put('/books/:id', (req, res) => {
     const bookIndex = books.findIndex((book) => book.id === bookId);
 
     if (bookIndex === -1) {
-        res.status(404).json({ error: 'Buch nicht gefunden' });
+        res.status(404).json({ error: 'Book not found' });
     } else {
         books[bookIndex] = updatedBook;
         res.json(updatedBook);
@@ -37,10 +37,10 @@ app.delete('/books/:id', (req, res) => {
     const bookIndex = books.findIndex((book) => book.id === bookId);
 
     if (bookIndex === -1) {
-        res.status(404).json({ error: 'Buch nicht gefunden' });
+        res.status(404).json({ error: 'Book not found' });
     } else {
         books.splice(bookIndex, 1);
-        res.json({ message: 'Buch erfolgreich gelöscht' });
+        res.json({ message: 'Book deleted' });
     }
 });
 
