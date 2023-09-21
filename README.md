@@ -26,15 +26,11 @@ Hinzufügen eines neuen Buchs
 
 Aktualisieren eines Buchs
 
-    Klicken Sie auf das Buch, das Sie aktualisieren möchten, um die Details anzuzeigen.
-
     Klicken Sie auf die Schaltfläche "Bearbeiten".
 
     Ändern Sie die gewünschten Informationen und klicken Sie auf "Aktualisieren", um die Änderungen zu speichern.
 
 
 Löschen eines Buchs
-
-    Klicken Sie auf das Buch, das Sie löschen möchten, um die Details anzuzeigen.
 
     Klicken Sie auf die Schaltfläche "Löschen", um das Buch zu entfernen.
